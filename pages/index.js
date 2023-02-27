@@ -22,7 +22,7 @@ function Home(props) {
 
 export async function getStaticProps() {
 
-  const client = await MongoClient.connect(process.env.DB_URI);
+  const client = await MongoClient.connect(process.env.mongodb_uri);
   const db = client.db();
   const meetupCollection = db.collection('meetups');
   const meetups = await meetupCollection.find().toArray();
